@@ -1,0 +1,18 @@
+<article class="skill-card reveal" style="--card-accent: @Category.Accent;">
+    <div class="skill-icon">
+        <Icon Name="@Category.Icon" Size="22" />
+    </div>
+    <h3 class="skill-title">@Category.Title</h3>
+    <p class="skill-description">@Category.Description</p>
+    <ul class="skill-list" aria-label="Tecnologías de @Category.Title">
+        @foreach (var skill in Category.Skills)
+        {
+            <li class="chip">@skill</li>
+        }
+    </ul>
+</article>
+
+@code {
+    [Parameter, EditorRequired]
+    public SkillCategory Category { get; set; } = default!;
+}

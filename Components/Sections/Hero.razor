@@ -1,0 +1,99 @@
+<section id="inicio" class="hero" aria-labelledby="hero-title">
+    <div class="container hero-grid">
+        <div class="hero-copy">
+            <p class="hero-badge reveal">
+                <span class="status-dot" aria-hidden="true"></span>
+                Portafolio profesional · .NET &amp; C#
+            </p>
+
+            <h1 id="hero-title" class="hero-title reveal">
+                Gustavo Junior
+                <span class="gradient-text">Bonifacio Peña</span>
+            </h1>
+
+            <p class="hero-role reveal">
+                <strong>Desarrollador de Software</strong>
+                <span class="role-separator" aria-hidden="true">|</span>
+                Especialista en .NET, C# y Arquitectura de Bases de Datos
+            </p>
+
+            <p class="hero-description reveal">
+                Construyo sistemas eficientes y mantenibles, desde el modelado de datos hasta la interfaz final.
+                Combino ingeniería, datos y comunicación clara para llevar ideas a producción.
+            </p>
+
+            <div class="hero-actions reveal">
+                <a class="btn btn-primary" href="#proyectos">
+                    Ver Proyectos
+                    <Icon Name="arrow-right" Size="18" />
+                </a>
+                <a class="btn btn-ghost" href="#contacto">
+                    Contactar
+                    <Icon Name="mail" Size="18" />
+                </a>
+            </div>
+
+            <div class="hero-links reveal">
+                <a class="text-link" href="@PortfolioData.GitHubUrl" target="_blank" rel="noopener noreferrer">
+                    <Icon Name="github" Size="18" />
+                    GitHub
+                    <span class="text-link-arrow">
+                        <Icon Name="arrow-up-right" Size="14" />
+                    </span>
+                </a>
+                <span class="hero-links-divider" aria-hidden="true"></span>
+                <a class="text-link" href="mailto:@PortfolioData.Email">
+                    <Icon Name="mail" Size="18" />
+                    @PortfolioData.Email
+                </a>
+            </div>
+
+            <dl class="hero-stats reveal">
+                <div>
+                    <dt>Proyectos</dt>
+                    <dd>@(PortfolioData.Projects.Length.ToString("00"))</dd>
+                </div>
+                <div>
+                    <dt>Ecosistema</dt>
+                    <dd>.NET 10</dd>
+                </div>
+                <div>
+                    <dt>Datos</dt>
+                    <dd>SQL Server</dd>
+                </div>
+                <div>
+                    <dt>Móvil</dt>
+                    <dd>Android</dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="hero-visual reveal" aria-hidden="true">
+            <div class="terminal">
+                <div class="terminal-bar">
+                    <span class="terminal-dot terminal-dot--red"></span>
+                    <span class="terminal-dot terminal-dot--yellow"></span>
+                    <span class="terminal-dot terminal-dot--green"></span>
+                    <span class="terminal-title">gustavo@portfolio: ~</span>
+                </div>
+                <div class="terminal-body">
+                    <p><span class="terminal-prompt">$</span> whoami</p>
+                    <p class="terminal-output">gustavo-bonifacio</p>
+                    <p><span class="terminal-prompt">$</span> cat profile.json</p>
+                    <pre><code>{
+  "role": "Software Developer",
+  "stack": [".NET", "C#", "SQL Server", "Blazor"],
+  "focus": "Database Architecture",
+  "openToWork": true
+}</code></pre>
+                    <p><span class="terminal-prompt">$</span> <span class="terminal-cursor"></span></p>
+                </div>
+            </div>
+
+            <span class="floating-chip floating-chip--one">C#</span>
+            <span class="floating-chip floating-chip--two">.NET</span>
+            <span class="floating-chip floating-chip--three">SQL</span>
+            <span class="floating-chip floating-chip--four">Android</span>
+        </div>
+    </div>
+</section>

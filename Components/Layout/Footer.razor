@@ -1,0 +1,48 @@
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            <a class="brand" href="#inicio" aria-label="Gustavo Bonifacio — Ir al inicio">
+                <span class="brand-mark" aria-hidden="true">GB<span>.</span></span>
+                <span class="brand-text">Gustavo <span>Bonifacio</span></span>
+            </a>
+            <p>Desarrollador de software enfocado en .NET, arquitectura de datos y desarrollo de aplicaciones.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navegación del pie de página">
+            @foreach (var link in Links)
+            {
+                <a href="@link.Href">@link.Label</a>
+            }
+        </nav>
+
+        <div class="footer-social">
+            <a href="@PortfolioData.GitHubUrl" target="_blank" rel="noopener noreferrer">
+                <Icon Name="github" Size="17" />
+                GitHub
+                <span class="footer-external">
+                    <Icon Name="arrow-up-right" Size="13" />
+                </span>
+            </a>
+            <a href="mailto:@PortfolioData.Email">
+                <Icon Name="mail" Size="17" />
+                Email
+            </a>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <p>© @DateTime.Now.Year Gustavo Bonifacio. Todos los derechos reservados.</p>
+        <p>Construido con <span>Blazor</span> y <span>.NET</span>.</p>
+    </div>
+</footer>
+
+@code {
+    private static readonly (string Label, string Href)[] Links =
+    [
+        ("Inicio", "#inicio"),
+        ("Sobre mí", "#sobre-mi"),
+        ("Habilidades", "#habilidades"),
+        ("Proyectos", "#proyectos"),
+        ("Contacto", "#contacto")
+    ];
+}

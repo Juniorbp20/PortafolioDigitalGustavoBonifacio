@@ -1,0 +1,29 @@
+<header class="section-header reveal">
+    <p class="section-eyebrow">
+        <span class="section-number">@Number</span>
+        <span class="section-separator" aria-hidden="true">/</span>
+        <span>@Eyebrow</span>
+    </p>
+    <h2 class="section-title" id="@Id">@Title</h2>
+    @if (!string.IsNullOrWhiteSpace(Description))
+    {
+        <p class="section-description">@Description</p>
+    }
+</header>
+
+@code {
+    [Parameter, EditorRequired]
+    public string Id { get; set; } = string.Empty;
+
+    [Parameter, EditorRequired]
+    public string Number { get; set; } = string.Empty;
+
+    [Parameter, EditorRequired]
+    public string Eyebrow { get; set; } = string.Empty;
+
+    [Parameter, EditorRequired]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public string? Description { get; set; }
+}

@@ -1,23 +1,26 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+<NavBar />
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+<main id="contenido-principal" tabindex="-1">
+    @Body
+</main>
+
+<Footer />
+
+<button class="back-to-top"
+        id="back-to-top"
+        type="button"
+        aria-label="Volver al inicio"
+        title="Volver al inicio"
+        hidden>
+    <Icon Name="arrow-up" Size="20" />
+</button>
 
 <div id="blazor-error-ui" data-nosnippet>
-    An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
+    Ocurrió un error inesperado.
+    <a href="." class="reload">Recargar</a>
+    <span class="dismiss" role="button" tabindex="0" aria-label="Cerrar mensaje">✕</span>
 </div>
