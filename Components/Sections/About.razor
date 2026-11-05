@@ -1,0 +1,54 @@
+<section id="sobre-mi" class="section about" aria-labelledby="sobre-mi-title">
+    <div class="container">
+        <SectionHeader Id="sobre-mi-title"
+                       Number="01"
+                       Eyebrow="Sobre mí"
+                       Title="Soluciones robustas, no solo código."
+                       Description="Ingeniería, datos y pedagogía al servicio de productos que funcionan y equipos que crecen." />
+
+        <div class="about-grid">
+            <div class="about-copy reveal">
+                <p class="about-lead">
+                    Soy un desarrollador de software enfocado en el diseño de soluciones robustas y la arquitectura de
+                    bases de datos relacionales. Combino mi conocimiento en el ecosistema .NET y tecnologías móviles
+                    con mi experiencia pedagógica, lo que me permite construir sistemas eficientes y comunicar ideas
+                    con claridad.
+                </p>
+
+                <div class="about-meta">
+                    <div class="about-meta-item">
+                        <span class="about-meta-label">Enfoque</span>
+                        <span class="about-meta-value">Backend · Datos · Desarrollo</span>
+                    </div>
+                    <div class="about-meta-item">
+                        <span class="about-meta-label">Stack principal</span>
+                        <span class="about-meta-value">.NET · C# · SQL Server</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-highlights">
+                @foreach (var highlight in Highlights)
+                {
+                    <article class="highlight-card reveal">
+                        <span class="highlight-icon">
+                            <Icon Name="@highlight.Icon" Size="20" />
+                        </span>
+                        <h3>@highlight.Title</h3>
+                        <p>@highlight.Description</p>
+                    </article>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@code {
+    private static readonly (string Icon, string Title, string Description)[] Highlights =
+    [
+        ("code", "Backend & .NET", "C#, .NET y Java para construir sistemas eficientes y mantenibles."),
+        ("database", "Arquitectura de datos", "Modelado relacional y bases de datos diseñadas para crecer con claridad."),
+        ("sparkles", "Aprendizaje continuo", "Formación constante en nuevas tecnologías, buenas prácticas y resolución de problemas."),
+        ("graduation", "Docencia & liderazgo", "Experiencia pedagógica para comunicar ideas y liderar equipos de desarrollo.")
+    ];
+}

@@ -1,0 +1,24 @@
+<section id="proyectos" class="section projects" aria-labelledby="proyectos-title">
+    <div class="container">
+        <SectionHeader Id="proyectos-title"
+                       Number="03"
+                       Eyebrow="Proyectos"
+                       Title="Trabajo que resuelve problemas reales."
+                       Description="Una selección de sistemas web, de escritorio y móviles donde he aplicado arquitectura, datos y desarrollo de aplicaciones." />
+
+        <div class="projects-grid">
+            @foreach (var project in PortfolioData.Projects)
+            {
+                <ProjectCard Project="project" />
+            }
+        </div>
+
+        <div class="projects-footer reveal">
+            <a class="btn btn-ghost" href="@PortfolioData.GitHubUrl" target="_blank" rel="noopener noreferrer">
+                <Icon Name="github" Size="18" />
+                Explorar más proyectos en GitHub
+                <Icon Name="arrow-up-right" Size="16" />
+            </a>
+        </div>
+    </div>
+</section>

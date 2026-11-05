@@ -1,0 +1,71 @@
+<header class="site-header" id="site-header" data-header>
+    <div class="container nav-inner">
+        <a class="brand" href="#inicio" aria-label="Gustavo Bonifacio — Ir al inicio">
+            <span class="brand-mark" aria-hidden="true">GB<span>.</span></span>
+            <span class="brand-text">Gustavo <span>Bonifacio</span></span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navegación principal">
+            @foreach (var link in Links)
+            {
+                <a class="nav-link @(link.Href == "#inicio" ? "is-active" : null)"
+                   href="@link.Href"
+                   data-nav-link>@link.Label</a>
+            }
+        </nav>
+
+        <div class="nav-actions">
+            <button class="icon-button theme-toggle"
+                    id="theme-toggle"
+                    type="button"
+                    aria-label="Cambiar a tema claro"
+                    aria-pressed="false"
+                    title="Cambiar tema">
+                <span class="theme-icon theme-icon--sun">
+                    <Icon Name="sun" Size="18" />
+                </span>
+                <span class="theme-icon theme-icon--moon">
+                    <Icon Name="moon" Size="18" />
+                </span>
+            </button>
+
+            <a class="btn btn-primary btn-sm nav-cta" href="#contacto">Hablemos</a>
+
+            <button class="icon-button menu-toggle"
+                    id="menu-toggle"
+                    type="button"
+                    aria-label="Abrir menú"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu">
+                <span class="menu-icon menu-icon--open">
+                    <Icon Name="menu" Size="20" />
+                </span>
+                <span class="menu-icon menu-icon--close">
+                    <Icon Name="close" Size="20" />
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Navegación móvil" hidden>
+        @foreach (var link in Links)
+        {
+            <a class="mobile-link" href="@link.Href" data-mobile-link>@link.Label</a>
+        }
+        <a class="btn btn-primary mobile-menu-cta" href="#contacto" data-mobile-link>
+            Hablemos de tu proyecto
+            <Icon Name="arrow-right" Size="17" />
+        </a>
+    </nav>
+</header>
+
+@code {
+    private static readonly (string Label, string Href)[] Links =
+    [
+        ("Inicio", "#inicio"),
+        ("Sobre mí", "#sobre-mi"),
+        ("Habilidades", "#habilidades"),
+        ("Proyectos", "#proyectos"),
+        ("Contacto", "#contacto")
+    ];
+}

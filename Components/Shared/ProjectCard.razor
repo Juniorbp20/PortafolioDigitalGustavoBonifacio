@@ -1,0 +1,66 @@
+<article class="project-card @(Project.Featured ? "project-card--featured" : null) reveal"
+         style="--project-accent: @Project.Accent;"
+         aria-labelledby="project-@Project.Number">
+    <div class="project-visual">
+        <div class="project-visual-top">
+            <span class="project-number">@Project.Number</span>
+            <div class="project-tags">
+                @if (Project.Featured)
+                {
+                    <span class="project-featured">
+                        <Icon Name="sparkles" Size="12" />
+                        Destacado
+                    </span>
+                }
+                <span class="project-category">@Project.Category</span>
+            </div>
+        </div>
+        <span class="project-initials" aria-hidden="true">@Project.Initials</span>
+    </div>
+    <div class="project-body">
+        <div class="project-heading">
+            <h3 id="project-@Project.Number">@Project.Name</h3>
+            @if (!string.IsNullOrWhiteSpace(Project.Role))
+            {
+                <p class="project-role">@Project.Role</p>
+            }
+        </div>
+        <p class="project-description">@Project.Description</p>
+        <div class="project-footer">
+            <ul class="project-stack" aria-label="Tecnologías del proyecto">
+                @foreach (var technology in Project.Stack)
+                {
+                    <li class="chip chip--sm">@technology</li>
+                }
+            </ul>
+            <div class="project-links">
+                <a class="project-link"
+                   href="@Project.RepoUrl"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Ver repositorio de @Project.Name en GitHub">
+                    <Icon Name="github" Size="16" />
+                    Ver repositorio
+                    <Icon Name="arrow-up-right" Size="13" />
+                </a>
+                @if (!string.IsNullOrWhiteSpace(Project.LiveUrl))
+                {
+                    <a class="project-link"
+                       href="@Project.LiveUrl"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="Ver sitio en vivo de @Project.Name">
+                        <Icon Name="external-link" Size="15" />
+                        Ver sitio
+                        <Icon Name="arrow-up-right" Size="13" />
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+</article>
+
+@code {
+    [Parameter, EditorRequired]
+    public Project Project { get; set; } = default!;
+}
