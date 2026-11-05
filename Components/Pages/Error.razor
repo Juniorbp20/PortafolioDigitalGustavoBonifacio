@@ -1,5 +1,4 @@
 ﻿@page "/Error"
-@using System.Diagnostics
 
 <PageTitle>Error | Gustavo Bonifacio</PageTitle>
 
@@ -16,14 +15,6 @@
                 No pudimos procesar esta solicitud. Intenta recargar la página o vuelve al inicio.
             </p>
 
-            @if (ShowRequestId)
-            {
-                <p class="error-request">
-                    <span>ID de solicitud</span>
-                    <code>@RequestId</code>
-                </p>
-            }
-
             <div class="error-actions">
                 <a class="btn btn-primary" href="/">Volver al inicio</a>
                 <a class="btn btn-ghost" href=".">Recargar página</a>
@@ -32,14 +23,3 @@
     </div>
 </section>
 
-@code {
-    [CascadingParameter]
-    private HttpContext? HttpContext { get; set; }
-
-    private string? RequestId { get; set; }
-
-    private bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
-
-    protected override void OnInitialized() =>
-        RequestId = Activity.Current?.Id ?? HttpContext?.TraceIdentifier;
-}

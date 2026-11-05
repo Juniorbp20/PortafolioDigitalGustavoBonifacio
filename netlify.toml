@@ -1,0 +1,11 @@
+[build]
+  # Instala el SDK de .NET 10 y compila la app como sitio estático.
+  command = 'curl -sSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel 10.0 --install-dir "$HOME/.dotnet" && export PATH="$HOME/.dotnet:$PATH" && dotnet publish PortafolioDigitalGustavoBonifacio.csproj -c Release -o publish'
+  publish = "publish/wwwroot"
+
+# Blazor WebAssembly enruta en el navegador: cualquier ruta desconocida
+# debe devolver la aplicación para que el Router muestre la página 404.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
