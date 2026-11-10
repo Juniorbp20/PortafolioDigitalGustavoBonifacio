@@ -364,3 +364,7 @@ FodyWeavers.xsd
 
 # Netlify CLI
 .netlify/
+
+# Postman local workspace binding
+.postman/
+postman/
