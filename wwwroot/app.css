@@ -189,6 +189,12 @@ svg {
     border-radius: 4px;
 }
 
+/* FocusOnNavigate enfoca el h1 al cargar; un encabezado no es interactivo. */
+h1:focus,
+h1:focus-visible {
+    outline: none;
+}
+
 [hidden] {
     display: none !important;
 }
@@ -597,6 +603,24 @@ html.reveal-enabled .reveal.is-visible {
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-top: 2rem;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    html,
+    body,
+    #app {
+        background: #ffffff !important;
+    }
+
+    body::before,
+    body::after {
+        display: none !important;
+    }
 }
 
 @keyframes status-pulse {

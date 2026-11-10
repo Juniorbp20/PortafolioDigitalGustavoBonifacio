@@ -1,0 +1,142 @@
+﻿@page "/cv"
+@layout PrintLayout
+@inject IJSRuntime JS
+
+<PageTitle>Gustavo Bonifacio | Currículum Vitae</PageTitle>
+
+<div class="cv-page">
+    <div class="cv-toolbar">
+        <a class="btn btn-ghost btn-sm" href="/">
+            <Icon Name="arrow-left" Size="16" />
+            Volver al portafolio
+        </a>
+        <div class="cv-toolbar-actions">
+            <a class="btn btn-primary btn-sm" href="cv/Gustavo-Bonifacio-CV.pdf" download>
+                <Icon Name="download" Size="16" />
+                Descargar PDF
+            </a>
+            <button class="btn btn-ghost btn-sm" type="button" @onclick="PrintAsync">
+                <Icon Name="printer" Size="16" />
+                Imprimir
+            </button>
+        </div>
+    </div>
+
+    <article class="cv-sheet">
+        <header class="cv-header">
+            <p class="cv-kicker">Currículum Vitae</p>
+            <h1>@PortfolioData.Name</h1>
+            <p class="cv-role">
+                @PortfolioData.Role
+                <span aria-hidden="true">·</span>
+                @PortfolioData.Specialties
+            </p>
+            <ul class="cv-contact" aria-label="Datos de contacto">
+                <li>
+                    <Icon Name="mail" Size="13" />
+                    <a href="mailto:@PortfolioData.Email">@PortfolioData.Email</a>
+                </li>
+                <li>
+                    <Icon Name="github" Size="13" />
+                    <a href="@PortfolioData.GitHubUrl" target="_blank" rel="noopener noreferrer">
+                        github.com/@PortfolioData.GitHubHandle
+                    </a>
+                </li>
+            </ul>
+        </header>
+
+        <section class="cv-section" aria-labelledby="cv-perfil">
+            <h2 id="cv-perfil">Perfil profesional</h2>
+            <p>@PortfolioData.Summary</p>
+        </section>
+
+        <section class="cv-section" aria-labelledby="cv-habilidades">
+            <h2 id="cv-habilidades">Habilidades técnicas</h2>
+            <dl class="cv-skills">
+                @foreach (var skill in PortfolioData.Skills)
+                {
+                    <dt>@skill.Title</dt>
+                    <dd>@string.Join(" · ", skill.Skills)</dd>
+                }
+            </dl>
+        </section>
+
+        <section class="cv-section" aria-labelledby="cv-proyectos">
+            <h2 id="cv-proyectos">Proyectos destacados</h2>
+            @foreach (var project in PortfolioData.Projects.Where(project => project.Featured))
+            {
+                <article class="cv-project">
+                    <div class="cv-item-head">
+                        <h3>@project.Name</h3>
+                        <span class="cv-item-meta">@project.Category</span>
+                    </div>
+                    <p>@project.Description</p>
+                    <p class="cv-tech">@string.Join(" · ", project.Stack)</p>
+                    @if (!string.IsNullOrWhiteSpace(project.RepoUrl))
+                    {
+                        <a class="cv-link" href="@project.RepoUrl" target="_blank" rel="noopener noreferrer">
+                            @project.RepoUrl
+                        </a>
+                    }
+                </article>
+            }
+        </section>
+
+        <section class="cv-section" aria-labelledby="cv-experiencia">
+            <h2 id="cv-experiencia">Experiencia laboral</h2>
+            @foreach (var experience in PortfolioData.Experience)
+            {
+                <article class="cv-job">
+                    <h3>@experience.Role</h3>
+                    @if (!string.IsNullOrWhiteSpace(experience.Organization))
+                    {
+                        <p class="cv-job-org">@experience.Organization</p>
+                    }
+                    <p>@experience.Description</p>
+                    <p class="cv-tech">@string.Join(" · ", experience.Tags)</p>
+                </article>
+            }
+        </section>
+
+        <section class="cv-section" aria-labelledby="cv-formacion">
+            <h2 id="cv-formacion">Educación y certificaciones</h2>
+            @foreach (var education in PortfolioData.Education)
+            {
+                <article class="cv-edu">
+                    <div class="cv-item-head">
+                        <h3>@education.Title</h3>
+                        <span class="cv-item-meta">@education.Status</span>
+                    </div>
+                    <p class="cv-edu-inst">@education.Institution</p>
+                    <p>@education.Description</p>
+                </article>
+            }
+
+            <ul class="cv-certifications" aria-label="Certificaciones">
+                @foreach (var certification in PortfolioData.Certifications)
+                {
+                    <li>
+                        <strong>@certification.Title</strong>
+                        <span>@certification.Institution · @certification.Detail</span>
+                    </li>
+                }
+            </ul>
+
+            @foreach (var recognition in PortfolioData.Recognitions)
+            {
+                <article class="cv-recognition">
+                    <p class="cv-item-meta">@recognition.Detail</p>
+                    <h3>@recognition.Title</h3>
+                    <p>@recognition.Description</p>
+                </article>
+            }
+        </section>
+    </article>
+</div>
+
+@code {
+    private async Task PrintAsync()
+    {
+        await JS.InvokeVoidAsync("print");
+    }
+}

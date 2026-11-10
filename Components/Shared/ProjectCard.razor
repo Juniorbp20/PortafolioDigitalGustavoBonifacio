@@ -33,29 +33,35 @@
                     <li class="chip chip--sm">@technology</li>
                 }
             </ul>
-            <div class="project-links">
-                <a class="project-link"
-                   href="@Project.RepoUrl"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="Ver repositorio de @Project.Name en GitHub">
-                    <Icon Name="github" Size="16" />
-                    Ver repositorio
-                    <Icon Name="arrow-up-right" Size="13" />
-                </a>
-                @if (!string.IsNullOrWhiteSpace(Project.LiveUrl))
-                {
-                    <a class="project-link"
-                       href="@Project.LiveUrl"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="Ver sitio en vivo de @Project.Name">
-                        <Icon Name="external-link" Size="15" />
-                        Ver sitio
-                        <Icon Name="arrow-up-right" Size="13" />
-                    </a>
-                }
-            </div>
+            @if (!string.IsNullOrWhiteSpace(Project.RepoUrl) || !string.IsNullOrWhiteSpace(Project.LiveUrl))
+            {
+                <div class="project-links">
+                    @if (!string.IsNullOrWhiteSpace(Project.RepoUrl))
+                    {
+                        <a class="project-link"
+                           href="@Project.RepoUrl"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Ver repositorio de @Project.Name en GitHub">
+                            <Icon Name="github" Size="16" />
+                            Ver repositorio
+                            <Icon Name="arrow-up-right" Size="13" />
+                        </a>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Project.LiveUrl))
+                    {
+                        <a class="project-link"
+                           href="@Project.LiveUrl"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Ver sitio en vivo de @Project.Name">
+                            <Icon Name="external-link" Size="15" />
+                            Ver sitio
+                            <Icon Name="arrow-up-right" Size="13" />
+                        </a>
+                    }
+                </div>
+            }
         </div>
     </div>
 </article>

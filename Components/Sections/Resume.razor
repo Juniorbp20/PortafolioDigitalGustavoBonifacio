@@ -1,0 +1,106 @@
+﻿<section id="trayectoria" class="section section--alt resume" aria-labelledby="trayectoria-title">
+    <div class="container">
+        <SectionHeader Id="trayectoria-title"
+                       Number="04"
+                       Eyebrow="Trayectoria"
+                       Title="Experiencia práctica y formación continua."
+                       Description="Docencia, gestión operativa y una base académica sólida que se traducen en criterio técnico, organización y comunicación clara." />
+
+        <div class="resume-grid">
+            <div class="resume-column">
+                <div class="resume-heading reveal">
+                    <span class="resume-heading-icon">
+                        <Icon Name="briefcase" Size="20" />
+                    </span>
+                    <div>
+                        <p class="resume-eyebrow">Experiencia laboral</p>
+                        <h3>Habilidades transferibles</h3>
+                    </div>
+                </div>
+
+                <div class="resume-timeline">
+                    @foreach (var experience in PortfolioData.Experience)
+                    {
+                        <article class="timeline-card reveal">
+                            <h4>@experience.Role</h4>
+                            @if (!string.IsNullOrWhiteSpace(experience.Organization))
+                            {
+                                <p class="timeline-org">@experience.Organization</p>
+                            }
+                            <p class="timeline-description">@experience.Description</p>
+                            <ul class="timeline-tags" aria-label="Competencias desarrolladas">
+                                @foreach (var tag in experience.Tags)
+                                {
+                                    <li class="chip chip--sm">@tag</li>
+                                }
+                            </ul>
+                        </article>
+                    }
+                </div>
+            </div>
+
+            <div class="resume-column">
+                <div class="resume-heading reveal">
+                    <span class="resume-heading-icon">
+                        <Icon Name="graduation" Size="20" />
+                    </span>
+                    <div>
+                        <p class="resume-eyebrow">Formación académica</p>
+                        <h3>Universidad Autónoma de Santo Domingo</h3>
+                    </div>
+                </div>
+
+                @foreach (var education in PortfolioData.Education)
+                {
+                    <article class="resume-card reveal">
+                        <div class="resume-card-top">
+                            <h4>@education.Title</h4>
+                            <span class="resume-status">@education.Status</span>
+                        </div>
+                        <p class="resume-institution">@education.Institution</p>
+                        <p class="resume-description">@education.Description</p>
+                    </article>
+                }
+
+                <div class="resume-heading resume-heading--spaced reveal">
+                    <span class="resume-heading-icon">
+                        <Icon Name="award" Size="20" />
+                    </span>
+                    <div>
+                        <p class="resume-eyebrow">Formación complementaria</p>
+                        <h3>Certificaciones y reconocimientos</h3>
+                    </div>
+                </div>
+
+                <ul class="cert-list">
+                    @foreach (var certification in PortfolioData.Certifications)
+                    {
+                        <li class="cert-item reveal">
+                            <span class="cert-icon">
+                                <Icon Name="award" Size="17" />
+                            </span>
+                            <div>
+                                <h4>@certification.Title</h4>
+                                <p>@certification.Institution · @certification.Detail</p>
+                            </div>
+                        </li>
+                    }
+                </ul>
+
+                @foreach (var recognition in PortfolioData.Recognitions)
+                {
+                    <article class="recognition-card reveal">
+                        <span class="recognition-icon">
+                            <Icon Name="sparkles" Size="20" />
+                        </span>
+                        <div>
+                            <p class="recognition-detail">@recognition.Detail</p>
+                            <h4>@recognition.Title</h4>
+                            <p class="recognition-description">@recognition.Description</p>
+                        </div>
+                    </article>
+                }
+            </div>
+        </div>
+    </div>
+</section>

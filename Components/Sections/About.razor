@@ -9,20 +9,17 @@
         <div class="about-grid">
             <div class="about-copy reveal">
                 <p class="about-lead">
-                    Soy un desarrollador de software enfocado en el diseño de soluciones robustas y la arquitectura de
-                    bases de datos relacionales. Combino mi conocimiento en el ecosistema .NET y tecnologías móviles
-                    con mi experiencia pedagógica, lo que me permite construir sistemas eficientes y comunicar ideas
-                    con claridad.
+                    @PortfolioData.Summary
                 </p>
 
                 <div class="about-meta">
                     <div class="about-meta-item">
                         <span class="about-meta-label">Enfoque</span>
-                        <span class="about-meta-value">Backend · Datos · Desarrollo</span>
+                        <span class="about-meta-value">Backend · Datos · Multiplataforma</span>
                     </div>
                     <div class="about-meta-item">
-                        <span class="about-meta-label">Stack principal</span>
-                        <span class="about-meta-value">.NET · C# · SQL Server</span>
+                        <span class="about-meta-label">Formación</span>
+                        <span class="about-meta-value">Licenciatura en Informática · UASD</span>
                     </div>
                 </div>
             </div>
@@ -46,9 +43,9 @@
 @code {
     private static readonly (string Icon, string Title, string Description)[] Highlights =
     [
-        ("code", "Backend & .NET", "C#, .NET y Java para construir sistemas eficientes y mantenibles."),
-        ("database", "Arquitectura de datos", "Modelado relacional y bases de datos diseñadas para crecer con claridad."),
-        ("sparkles", "Aprendizaje continuo", "Formación constante en nuevas tecnologías, buenas prácticas y resolución de problemas."),
-        ("graduation", "Docencia & liderazgo", "Experiencia pedagógica para comunicar ideas y liderar equipos de desarrollo.")
+        ("code", "Ingeniería de software", "Sistemas de escritorio, plataformas web y aplicaciones móviles nativas."),
+        ("layers", "Arquitectura limpia", "Patrones de diseño, separación de responsabilidades y código mantenible."),
+        ("database", "Datos & persistencia", "SQL Server, MariaDB, Entity Framework Core y Room para soluciones robustas."),
+        ("graduation", "Docencia & liderazgo", "Experiencia pedagógica para comunicar ideas técnicas con claridad.")
     ];
 }
