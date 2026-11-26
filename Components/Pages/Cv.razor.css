@@ -35,8 +35,27 @@
 }
 
 .cv-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
     padding-bottom: 1.25rem;
     border-bottom: 2px solid #0f172a;
+}
+
+.cv-header-text {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.cv-photo {
+    flex-shrink: 0;
+    width: 92px;
+    height: 92px;
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 18%;
 }
 
 .cv-kicker {
@@ -269,6 +288,16 @@
     .cv-contact {
         flex-direction: column;
     }
+
+    .cv-header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+    .cv-photo {
+        width: 84px;
+        height: 84px;
+    }
 }
 
 @media print {
@@ -293,6 +322,15 @@
 
     .cv-header {
         break-after: avoid;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .cv-photo {
+        width: 26mm;
+        height: 26mm;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
     }
 
     .cv-section,

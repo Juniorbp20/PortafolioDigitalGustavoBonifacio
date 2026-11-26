@@ -52,6 +52,8 @@ public static class PortfolioData
     public const string Email = "Jbonifacio0707@gmail.com";
     public const string GitHubUrl = "https://github.com/Juniorbp20";
     public const string GitHubHandle = "Juniorbp20";
+    public const string PhotoUrl = "img/gustavo-bonifacio.jpg";
+    public const string PhotoAlt = "Retrato profesional de Gustavo Junior Bonifacio Peña";
 
     public static readonly Project[] Projects =
     [

@@ -72,8 +72,20 @@
             </dl>
         </div>
 
-        <div class="hero-visual reveal" aria-hidden="true">
-            <div class="terminal">
+        <div class="hero-visual reveal">
+            <figure class="hero-portrait">
+                <img src="@PortfolioData.PhotoUrl"
+                     alt="@PortfolioData.PhotoAlt"
+                     width="720"
+                     height="960"
+                     decoding="async" />
+                <figcaption>
+                    <strong>@PortfolioData.DisplayName</strong>
+                    <span>@PortfolioData.Role</span>
+                </figcaption>
+            </figure>
+
+            <div class="terminal" aria-hidden="true">
                 <div class="terminal-bar">
                     <span class="terminal-dot terminal-dot--red"></span>
                     <span class="terminal-dot terminal-dot--yellow"></span>
@@ -94,10 +106,10 @@
                 </div>
             </div>
 
-            <span class="floating-chip floating-chip--one">C#</span>
-            <span class="floating-chip floating-chip--two">.NET</span>
-            <span class="floating-chip floating-chip--three">Kotlin</span>
-            <span class="floating-chip floating-chip--four">Android</span>
+            <span class="floating-chip floating-chip--one" aria-hidden="true">C#</span>
+            <span class="floating-chip floating-chip--two" aria-hidden="true">.NET</span>
+            <span class="floating-chip floating-chip--three" aria-hidden="true">Kotlin</span>
+            <span class="floating-chip floating-chip--four" aria-hidden="true">Android</span>
         </div>
     </div>
 </section>
