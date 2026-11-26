@@ -5,10 +5,6 @@ Portafolio profesional de **Gustavo Junior Bonifacio Peña**, desarrollador de s
 **Sitio publicado:** <https://portafolio-gustavo-junior-bonifacio.netlify.app>
 **GitHub:** <https://github.com/Juniorbp20>
 
-<p align="center">
-  <img src="wwwroot/img/gustavo-bonifacio.jpg" alt="Retrato profesional de Gustavo Junior Bonifacio Peña" width="180" />
-</p>
-
 ## Qué incluye
 
 | Sección | Contenido |
