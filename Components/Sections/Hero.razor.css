@@ -262,6 +262,8 @@
 .hero-portrait img {
     display: block;
     width: 100%;
+    height: auto;
+    max-width: 100%;
     aspect-ratio: 3 / 4;
     object-fit: cover;
     object-position: center top;
@@ -421,7 +423,8 @@ html.reveal-enabled .hero-visual {
         right: auto;
         bottom: auto;
         order: -1;
-        width: 150px;
+        width: clamp(150px, 42vw, 210px);
+        flex: 0 0 auto;
     }
 
     .terminal {
