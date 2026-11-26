@@ -24,25 +24,34 @@
 
     <article class="cv-sheet">
         <header class="cv-header">
-            <p class="cv-kicker">Currículum Vitae</p>
-            <h1>@PortfolioData.Name</h1>
-            <p class="cv-role">
-                @PortfolioData.Role
-                <span aria-hidden="true">·</span>
-                @PortfolioData.Specialties
-            </p>
-            <ul class="cv-contact" aria-label="Datos de contacto">
-                <li>
-                    <Icon Name="mail" Size="13" />
-                    <a href="mailto:@PortfolioData.Email">@PortfolioData.Email</a>
-                </li>
-                <li>
-                    <Icon Name="github" Size="13" />
-                    <a href="@PortfolioData.GitHubUrl" target="_blank" rel="noopener noreferrer">
-                        github.com/@PortfolioData.GitHubHandle
-                    </a>
-                </li>
-            </ul>
+            <div class="cv-header-text">
+                <p class="cv-kicker">Currículum Vitae</p>
+                <h1>@PortfolioData.Name</h1>
+                <p class="cv-role">
+                    @PortfolioData.Role
+                    <span aria-hidden="true">·</span>
+                    @PortfolioData.Specialties
+                </p>
+                <ul class="cv-contact" aria-label="Datos de contacto">
+                    <li>
+                        <Icon Name="mail" Size="13" />
+                        <a href="mailto:@PortfolioData.Email">@PortfolioData.Email</a>
+                    </li>
+                    <li>
+                        <Icon Name="github" Size="13" />
+                        <a href="@PortfolioData.GitHubUrl" target="_blank" rel="noopener noreferrer">
+                            github.com/@PortfolioData.GitHubHandle
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <img class="cv-photo"
+                 src="@PortfolioData.PhotoUrl"
+                 alt="@PortfolioData.PhotoAlt"
+                 width="720"
+                 height="960"
+                 decoding="async" />
         </header>
 
         <section class="cv-section" aria-labelledby="cv-perfil">
